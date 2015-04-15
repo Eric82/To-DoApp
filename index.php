@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div class="wrap">
-	yyfy
+
 	</div>
 </body>
 </html>
