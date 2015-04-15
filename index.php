@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div class="wrap">
-	ghg
+	yyfy
 	</div>
 </body>
 </html>
