@@ -10,7 +10,7 @@
 			<ul>
 				<?php require("includes/connect.php");
 				$mysqli = new mysqli('localhost', 'root', 'root', 'todo');
-				$query = "SELECT * FROM task ORDER BY date ASC, time ASC";
+				$query = "SELECT * FROM tasks ORDER BY date ASC, time ASC";
 				if ($result = $mysqli->query($query)) {
 					$numrows = $result->num_rows;
 					if ($numrows>0) {
@@ -18,9 +18,9 @@
 							$task_id = $row['id'];
 							$task_name = $row['task'];
 
-							echo'<li>
+							echo '<li>
 							<span>'.$task_name. '</span>
-							<img id="'.$task_id. '" class=delete-button" width="10px" src="images/close.svg"/> 
+							<img id="'.$task_id.'" class="delete-button" width="10px" src="images/close.svg"/> 
 							</li>';
 						}
 					}
@@ -33,7 +33,8 @@
 	</form>
 	</div>	
 </body>
-<script src="http://code.jquery.com/query-latest.min.js"></script>
+<!-- <script src="http://code.jquery.com/query-latest.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
 	add_task(); //calling the add task function
 
@@ -57,6 +58,7 @@
 
 		$.post('includes/delete-task.php', {id: task_id}, function(){
 		current_element.parent().fadeOut("fast", function(){
+				$(this).remove();
 		});
 	});
 });
